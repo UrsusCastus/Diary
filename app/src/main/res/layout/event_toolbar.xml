@@ -2,32 +2,33 @@
 <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="@android:color/darker_gray">
+    android:background="@color/colorBackground">
 
     <ImageButton
         android:id="@+id/event_toolbar_button_close"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
         android:layout_gravity="center_vertical|start"
         android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp"
-        android:background="@android:color/darker_gray"
-        android:src="@drawable/ic_event_toolbar_close_24" />
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_event_toolbar_close" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/new_event"
-        android:textSize="16sp" />
+        android:textColor="@color/colorFont"
+        android:textSize="18sp" />
 
     <ImageButton
         android:id="@+id/event_toolbar_button_done"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
         android:layout_gravity="center_vertical|end"
         android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp"
-        android:background="@android:color/darker_gray"
-        android:src="@drawable/ic_event_toolbar_done_24" />
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_non_active_toolbar_event_done" />
 
 </androidx.appcompat.widget.Toolbar>

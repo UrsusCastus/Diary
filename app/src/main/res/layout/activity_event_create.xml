@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     android:orientation="vertical">
 
     <include
@@ -15,7 +16,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
 
         <TextView
             android:id="@+id/activity_event_create_title_text"
@@ -23,7 +26,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/title_help"
-            android:textSize="24dp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/guideline_one"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,8 +52,9 @@
             android:layout_height="wrap_content"
             android:background="@null"
             android:gravity="start|center_vertical"
-            android:hint="Название"
+            android:hint="@string/hint_name_event"
             android:inputType="textImeMultiLine"
+            android:textCursorDrawable="@drawable/custom_color_cursor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/guideline_two"
             app:layout_constraintStart_toEndOf="@id/guideline_one"
@@ -61,17 +65,20 @@
     <View
         android:id="@+id/divider_line_one"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="4dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="4dp"
         android:background="@android:color/darker_gray" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_layout_start_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true">
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
 
         <ImageView
             android:id="@+id/activity_event_create_image_timer_start"
@@ -101,8 +108,8 @@
             android:id="@+id/activity_event_create_start_time_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Начало"
-            android:textSize="18dp"
+            android:text="@string/text_view_start_time"
+            android:textSize="18sp"
             app:layout_constraintBaseline_toBaselineOf="@id/activity_event_create_start_time"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/activity_event_create_set_start_time_image_arrow"
@@ -133,17 +140,20 @@
     <View
         android:id="@+id/divider_line_two"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="4dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="4dp"
         android:background="@android:color/darker_gray" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_layout_end_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true">
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
 
         <ImageView
             android:id="@+id/activity_event_create_image_timer_end"
@@ -173,8 +183,8 @@
             android:id="@+id/activity_event_create_end_time_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Конец"
-            android:textSize="18dp"
+            android:text="@string/text_view_end_time"
+            android:textSize="18sp"
             app:layout_constraintBaseline_toBaselineOf="@id/activity_event_create_end_time"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/activity_event_create_set_end_time_image_arrow"
@@ -205,17 +215,16 @@
     <View
         android:id="@+id/divider_line_three"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="4dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="4dp"
         android:background="@android:color/darker_gray" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true">
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
 
         <ImageView
             android:id="@+id/activity_event_create_image_description"
@@ -247,8 +256,9 @@
             android:layout_height="wrap_content"
             android:background="@null"
             android:gravity="start|center_vertical"
-            android:hint="Описание"
+            android:hint="@string/hint_description"
             android:inputType="textImeMultiLine"
+            android:textCursorDrawable="@drawable/custom_color_cursor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/guideline_eight"
             app:layout_constraintStart_toEndOf="@id/guideline_seven"

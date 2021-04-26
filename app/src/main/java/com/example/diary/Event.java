@@ -2,14 +2,14 @@ package com.example.diary;
 
 public class Event {
     private String mTitle;
-    private int mDate;
-    private int mTimeStart;
+    private long mTimeStart;
+    private long mTimeEnd;
     private String mDescription;
 
-    public Event(String title, int date, int timeStart, String description) {
+    public Event(String title, long timeStart, long timeEnd, String description) {
         mTitle = title;
-        mDate = date;
         mTimeStart = timeStart;
+        mTimeEnd = timeEnd;
         mDescription = description;
     }
 
@@ -17,31 +17,31 @@ public class Event {
         return mTitle;
     }
 
-    public void setTitle(String mTitle) {
-        this.mTitle = mTitle;
+    public void setTitle(String title) {
+        mTitle = title;
     }
 
-    public int getDate() {
-        return mDate;
-    }
-
-    public void setDate(int mDate) {
-        this.mDate = mDate;
-    }
-
-    public int getTimeStart() {
+    public long getTimeStart() {
         return mTimeStart;
     }
 
-    public void setTimeStart(int mTimeStart) {
-        this.mTimeStart = mTimeStart;
+    public void setTimeStart(int timeStart) {
+        mTimeStart = timeStart;
+    }
+
+    public long getTimeEnd() {
+        return mTimeEnd;
+    }
+
+    public void setTimeEnd(int timeEnd) {
+        mTimeEnd = timeEnd;
     }
 
     public String getDescription() {
         return mDescription;
     }
 
-    public void setDescription(String mDescription) {
-        this.mDescription = mDescription;
+    public void setDescription(String description) {
+        mDescription = description;
     }
 }

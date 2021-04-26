@@ -7,6 +7,7 @@
     android:orientation="vertical">
 
     <CalendarView
+        android:id="@+id/activity_calendar_calendar_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="50" />
@@ -21,8 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            tools:listitem="@layout/item_event_list"
-            />
+            tools:listitem="@layout/item_event_list" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/activity_calendar_fab_add_event"
