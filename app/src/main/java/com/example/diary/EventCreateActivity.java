@@ -16,6 +16,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.DialogFragment;
 
+import com.example.diary.data.DataReceiver;
+
+import org.json.JSONObject;
+
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -23,6 +27,7 @@ public class EventCreateActivity extends AppCompatActivity implements DateTimePi
 
     private static final String LOG_EVENT_CREATE_ACTIVITY = "LogEventCreateActivity";
 
+    private DataReceiver mDataReceiver;
     private ConstraintLayout mStartTimeConstraintLayout;
     private ConstraintLayout mEndTimeConstraintLayout;
     private ImageButton mCloseEventCreateActivityImageButton;
@@ -47,6 +52,7 @@ public class EventCreateActivity extends AppCompatActivity implements DateTimePi
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_event_create);
 
+        mDataReceiver = DataReceiver.getInstanceDataReceiver();
         Intent intent = getIntent();
         String dateStartString = intent.getStringExtra("DateOfCalendar");
         mDayOfMonth = intent.getIntExtra("DayOfMonth", 0);
@@ -132,8 +138,17 @@ public class EventCreateActivity extends AppCompatActivity implements DateTimePi
         String description = mDescriptionEditText.getText().toString();
 
         Event event = new Event(title, mStartTime, mEndTime, description);
+        mDataReceiver.addEvent(event);
+        JSONObject jsonObject = mDataReceiver.createJsonObject(event);
 
-        //запись события в json-файл (в новом потоке) - DataReceiver
+        Runnable runnable = () -> {
+            Log.d(LOG_EVENT_CREATE_ACTIVITY, Thread.currentThread().getName());
+            mDataReceiver.writeDataToJsonFileOnInternalStorage(getApplicationContext(), jsonObject);
+        };
+
+        Thread thread = new Thread(runnable);
+        thread.start();
+
         //поставить метку о событии в календаре
     }
 
