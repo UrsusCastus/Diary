@@ -1,6 +1,7 @@
 package com.example.diary;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -43,6 +44,7 @@ public class EventCreateActivity extends AppCompatActivity implements DateTimePi
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_event_create);
 
         Intent intent = getIntent();
@@ -70,7 +72,10 @@ public class EventCreateActivity extends AppCompatActivity implements DateTimePi
             finish();
         });
 
-        mEventDoneImageButton.setOnClickListener(v -> createEvent());
+        mEventDoneImageButton.setOnClickListener(v -> {
+            createEvent();
+            finish();
+        });
 
         TextWatcher textWatcher = new TextWatcher() {
             @Override
@@ -130,8 +135,6 @@ public class EventCreateActivity extends AppCompatActivity implements DateTimePi
 
         //запись события в json-файл (в новом потоке) - DataReceiver
         //поставить метку о событии в календаре
-
-        finish();
     }
 
     private void showAlertDialogCancel() {
